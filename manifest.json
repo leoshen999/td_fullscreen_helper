@@ -1,0 +1,37 @@
+{
+  "name": "TD Fullscreen Helper",
+  "description": "Allow web game `Millennium War Aigis` and `Shiro Project:RE` being played in fullscreen mode.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://pc-play.games.dmm.com/",
+    "http://assets.shiropro-re.net/html/Oshiro.html",
+    "https://drc1bk94f7rq8.cloudfront.net/"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://osapi.dmm.com/gadgets/ifr*"],
+      "all_frames": true,
+      "js": ["inject_outer.js"]
+    },
+    {
+      "matches": [
+        "https://drc1bk94f7rq8.cloudfront.net/1023e42765d45db8df7690d8093cac97feb4b226/*",
+        "http://assets.shiropro-re.net/html/Oshiro.html"
+      ],
+      "all_frames": true,
+      "css": ["inject_inner.css"],
+      "js": ["inject_inner.js"]
+    }
+  ],
+  "action": {
+  }
+}
