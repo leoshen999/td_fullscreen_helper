@@ -11,10 +11,8 @@ function determineGameType(rawUrl) {
   return "";
 }
 
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (!changeInfo.url) return;
-
-  let gameType = determineGameType(changeInfo.url);
+function handleTabInfoUpdated(tabId, url) {
+  let gameType = determineGameType(url);
 
   const key = tabId.toString();
   chrome.storage.local.get(key, result => {
@@ -31,6 +29,16 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
       }
     }
   });
+}
+
+chrome.webNavigation.onCommitted.addListener(details => {
+  if (details.frameId !== 0) return;
+  handleTabInfoUpdated(details.tabId, details.url);
+});
+
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (!changeInfo.url) return;
+  handleTabInfoUpdated(tabId, changeInfo.url);
 });
 
 chrome.tabs.onRemoved.addListener((tabId, removeInfo) => {
