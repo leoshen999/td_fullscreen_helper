@@ -11,6 +11,7 @@
   ],
   "host_permissions": [
     "http://pc-play.games.dmm.com/",
+    "http://pc-play.games.dmm.co.jp/",
     "http://assets.shiropro-re.net/html/Oshiro.html",
     "https://drc1bk94f7rq8.cloudfront.net/"
   ],
@@ -25,7 +26,8 @@
     },
     {
       "matches": [
-        "https://drc1bk94f7rq8.cloudfront.net/1023e42765d45db8df7690d8093cac97feb4b226/*",
+        "https://drc1bk94f7rq8.cloudfront.net/1023e42765d45db8df7690d8093cac97feb4b226/5ffb50b1e18c251d1320f666dcc4fde8",
+        "https://drc1bk94f7rq8.cloudfront.net/1023e42765d45db8df7690d8093cac97feb4b226/6c3b7570540289738f304b9eea90eee4",
         "http://assets.shiropro-re.net/html/Oshiro.html"
       ],
       "all_frames": true,

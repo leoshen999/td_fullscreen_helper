@@ -6,6 +6,8 @@ function determineGameType(rawUrl) {
     return "oshiro";
   else if (url === "http://pc-play.games.dmm.com/play/aigisc/")
     return "aigis";
+  else if (url === "http://pc-play.games.dmm.co.jp/play/aigis/")
+    return "aigis";
   return "";
 }
 
